@@ -1,0 +1,2038 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assala SAKER | Traductrice Assermentée Français-Arabe | Épinal</title>
+    <meta name="description" content="Traductrice assermentée français-arabe à Épinal. Services de traduction certifiée, interprétation et traduction de documents officiels.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========================================
+           LOADING SCREEN ANIMATION
+           Beautiful entrance experience
+           ======================================== */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a1128 0%, #1a2332 50%, #0f1824 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Animated Logo */
+        .loading-logo {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 3rem;
+        }
+
+        /* Pen Icon Animation */
+        .loading-pen {
+            font-size: 6rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            animation: penWrite 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px rgba(201, 169, 97, 0.8));
+        }
+
+        @keyframes penWrite {
+            0%, 100% { 
+                transform: translate(-50%, -50%) rotate(-15deg) scale(1);
+                filter: drop-shadow(0 0 30px rgba(201, 169, 97, 0.8));
+            }
+            50% { 
+                transform: translate(-50%, -50%) rotate(-20deg) scale(1.1);
+                filter: drop-shadow(0 0 50px rgba(201, 169, 97, 1));
+            }
+        }
+
+        /* Orbiting Letters */
+        .orbit-letter {
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent);
+            animation: orbit 4s linear infinite;
+        }
+
+        .orbit-letter:nth-child(1) { 
+            animation-delay: 0s;
+            top: 0;
+            left: 50%;
+        }
+        .orbit-letter:nth-child(2) { 
+            animation-delay: 1s;
+            top: 50%;
+            right: 0;
+        }
+        .orbit-letter:nth-child(3) { 
+            animation-delay: 2s;
+            bottom: 0;
+            left: 50%;
+        }
+        .orbit-letter:nth-child(4) { 
+            animation-delay: 3s;
+            top: 50%;
+            left: 0;
+        }
+
+        @keyframes orbit {
+            0% {
+                opacity: 0;
+                transform: rotate(0deg) translateX(80px) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: rotate(360deg) translateX(80px) rotate(-360deg);
+            }
+        }
+
+        /* Loading Text */
+        .loading-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #fff, var(--accent), #fff);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmerText 2s ease-in-out infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes shimmerText {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Loading Progress Bar */
+        .loading-bar-container {
+            width: 300px;
+            height: 4px;
+            background: rgba(201, 169, 97, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .loading-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), #e8d4a0, var(--accent));
+            background-size: 200% 100%;
+            animation: loadingProgress 2s ease-in-out forwards, shimmerBar 1.5s linear infinite;
+            border-radius: 2px;
+            box-shadow: 0 0 20px var(--accent);
+        }
+
+        @keyframes loadingProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        @keyframes shimmerBar {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        /* Floating Particles */
+        .loading-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+            animation: floatParticle 3s ease-in-out infinite;
+        }
+
+        @keyframes floatParticle {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .loading-particle:nth-child(1) { left: 20%; animation-delay: 0s; animation-duration: 3s; }
+        .loading-particle:nth-child(2) { left: 40%; animation-delay: 0.5s; animation-duration: 3.5s; }
+        .loading-particle:nth-child(3) { left: 60%; animation-delay: 1s; animation-duration: 4s; }
+        .loading-particle:nth-child(4) { left: 80%; animation-delay: 1.5s; animation-duration: 3.2s; }
+
+        @keyframes floatParticle {
+            0% {
+                bottom: -20px;
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 100vh;
+                opacity: 0;
+            }
+        }
+
+        :root {
+            --primary: #1a2332;
+            --secondary: #0f1824;
+            --accent: #c9a961;
+            --accent-glow: #d4af37;
+            --text-light: #f8f9fa;
+            --text-muted: #b0b7c3;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--text-light);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ========================================
+           AURORA BOREALIS BACKGROUND EFFECT
+           Revolutionary flowing lights
+           ======================================== */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(74, 144, 226, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(201, 169, 97, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 60%);
+            animation: auroraFlow 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes auroraFlow {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.6;
+            }
+            33% {
+                transform: translate(5%, -5%) scale(1.1);
+                opacity: 0.8;
+            }
+            66% {
+                transform: translate(-5%, 5%) scale(0.95);
+                opacity: 0.7;
+            }
+        }
+
+        /* Ensure content is above aurora */
+        nav, section, footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== CUSTOM CURSOR ========== */
+        /* ========================================
+           CUSTOM GOLDEN PEN CURSOR
+           Revolutionary writing-themed cursor
+           ======================================== */
+        .cursor {
+            width: 30px;
+            height: 30px;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        }
+
+        .cursor::before {
+            content: '✒️';
+            font-size: 28px;
+            position: absolute;
+            top: -14px;
+            left: -14px;
+            filter: drop-shadow(0 0 8px rgba(201, 169, 97, 0.8));
+            animation: penFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes penFloat {
+            0%, 100% { transform: translateY(0px) rotate(-15deg); }
+            50% { transform: translateY(-3px) rotate(-20deg); }
+        }
+
+        /* Ink trail effect */
+        .cursor-follower {
+            width: 15px;
+            height: 15px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0.6;
+        }
+
+        /* Golden glow around cursor */
+        .cursor-glow {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9997;
+            transition: all 0.6s ease;
+            opacity: 0.5;
+        }
+
+        /* Cursor changes on hover over interactive elements */
+        a:hover ~ .cursor::before,
+        button:hover ~ .cursor::before,
+        .service-card:hover ~ .cursor::before {
+            transform: scale(1.3) rotate(-25deg);
+            filter: drop-shadow(0 0 15px rgba(201, 169, 97, 1));
+        }
+
+        html {
+            cursor: none;
+        }
+
+        a, button, input, textarea {
+            cursor: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        body.rtl {
+            direction: rtl;
+            font-family: 'Tajawal', 'Amiri', sans-serif;
+        }
+
+        /* ========== ANIMATED BACKGROUND ========== */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .animated-bg canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(26, 35, 50, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent);
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(201, 169, 97, 0.5);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-glow));
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 0.4rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1.2rem;
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a2332 0%, #0f1824 50%, #1a2332 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 20s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.15) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+            filter: blur(60px);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.8; }
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 15%;
+            right: 15%;
+            animation: float 25s ease-in-out infinite;
+            filter: blur(40px);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        .translation-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-letter {
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--accent);
+            opacity: 0.25;
+            animation: floatUp ease-in-out infinite;
+            z-index: 1;
+            text-shadow: 0 0 30px rgba(201, 169, 97, 0.4);
+        }
+
+        @keyframes floatUp {
+            0% {
+                bottom: -10%;
+                opacity: 0;
+                transform: translateX(0) rotate(0deg) scale(0.8);
+            }
+            15% { opacity: 0.25; }
+            50% { transform: translateX(30px) rotate(180deg) scale(1); }
+            85% { opacity: 0.25; }
+            100% {
+                bottom: 110%;
+                opacity: 0;
+                transform: translateX(-20px) rotate(360deg) scale(0.8);
+            }
+        }
+
+        /* ========================================
+           CONSTELLATION - Language Connection
+           Stars connecting FR ↔ AR symbolically
+           ======================================== */
+        .constellation-star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+            animation: starTwinkle 3s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        .constellation-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.3;
+            transform-origin: left center;
+            animation: lineGlow 4s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes lineGlow {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.5; }
+        }
+
+        /* ========================================
+           PARTICLE TEXT FORMATION EFFECT
+           Section titles assemble from particles
+           ======================================== */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title.particle-effect {
+            opacity: 0;
+            animation: titleAppear 1.5s ease forwards;
+        }
+
+        @keyframes titleAppear {
+            0% { 
+                opacity: 0; 
+                filter: blur(10px);
+                transform: scale(0.8);
+            }
+            100% { 
+                opacity: 1; 
+                filter: blur(0);
+                transform: scale(1);
+            }
+        }
+
+        /* Glowing border pulse on scroll */
+        .section-title.visible {
+            animation: titleGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { 
+                text-shadow: 0 0 10px rgba(201, 169, 97, 0.3);
+            }
+            50% { 
+                text-shadow: 0 0 30px rgba(201, 169, 97, 0.6), 0 0 50px rgba(201, 169, 97, 0.4);
+            }
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: floatIcon 40s ease-in-out infinite;
+        }
+
+        .icon-1 { left: 12%; top: 20%; }
+        .icon-2 { right: 15%; top: 60%; animation-delay: 8s; }
+        .icon-3 { left: 70%; top: 35%; animation-delay: 16s; }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.08; }
+            25% { transform: translate(20px, -15px) rotate(5deg); opacity: 0.12; }
+            50% { transform: translate(-15px, 10px) rotate(-5deg); opacity: 0.08; }
+            75% { transform: translate(15px, -10px) rotate(3deg); opacity: 0.12; }
+        }
+
+        .geo-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.3), transparent);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .line-1 { width: 40%; top: 25%; animation: slideRight 15s linear infinite; }
+        .line-2 { width: 30%; top: 55%; animation: slideRight 20s linear infinite; animation-delay: 5s; }
+        .line-3 { width: 50%; top: 75%; animation: slideRight 18s linear infinite; animation-delay: 10s; }
+
+        @keyframes slideRight {
+            0% { left: -60%; opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { left: 150%; opacity: 0; }
+        }
+
+        .writing-pen {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.1;
+            animation: writePath 25s linear infinite;
+        }
+
+        @keyframes writePath {
+            0% { left: -10%; top: 20%; transform: rotate(-45deg); opacity: 0; }
+            10% { opacity: 0.12; }
+            50% { top: 60%; }
+            90% { opacity: 0.12; }
+            100% { left: 110%; top: 80%; transform: rotate(45deg); opacity: 0; }
+        }
+
+        /* Translation-Themed Floating Letters */
+        .floating-letter {
+            position: absolute;
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            opacity: 0.12;
+            animation: floatLetter linear infinite;
+            z-index: 1;
+        }
+
+        .letter-1 { left: 8%; bottom: -60px; animation-duration: 28s; }
+        .letter-2 { left: 22%; bottom: -60px; animation-duration: 32s; animation-delay: 6s; }
+        .letter-3 { left: 45%; bottom: -60px; animation-duration: 30s; animation-delay: 12s; }
+        .letter-4 { left: 68%; bottom: -60px; animation-duration: 26s; animation-delay: 4s; }
+        .letter-5 { left: 88%; bottom: -60px; animation-duration: 34s; animation-delay: 16s; }
+
+        @keyframes floatLetter {
+            0% {
+                bottom: -60px;
+                opacity: 0;
+                transform: translateX(0) rotate(0deg);
+            }
+            5% {
+                opacity: 0.12;
+            }
+            50% {
+                transform: translateX(80px) rotate(180deg);
+            }
+            95% {
+                opacity: 0.12;
+            }
+            100% {
+                bottom: 110%;
+                opacity: 0;
+                transform: translateX(-60px) rotate(360deg);
+            }
+        }
+
+        /* Floating Translation Arrow */
+        .translation-arrow {
+            position: absolute;
+            font-size: 3rem;
+            color: var(--accent);
+            opacity: 0.15;
+            animation: slideArrow linear infinite;
+            z-index: 1;
+        }
+
+        .arrow-1 { top: 25%; left: -100px; animation-duration: 22s; }
+        .arrow-2 { top: 65%; left: -100px; animation-duration: 26s; animation-delay: 13s; }
+
+        @keyframes slideArrow {
+            0% {
+                left: -100px;
+                opacity: 0;
+            }
+            5% {
+                opacity: 0.15;
+            }
+            95% {
+                opacity: 0.15;
+            }
+            100% {
+                left: calc(100% + 100px);
+                opacity: 0;
+            }
+        }
+
+        /* Floating Document */
+        .floating-doc {
+            position: absolute;
+            width: 35px;
+            height: 45px;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.15), rgba(201, 169, 97, 0.08));
+            border-radius: 3px;
+            opacity: 0.3;
+            animation: floatDoc linear infinite;
+            z-index: 1;
+        }
+
+        .floating-doc::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 7px;
+            right: 7px;
+            height: 2px;
+            background: rgba(201, 169, 97, 0.3);
+        }
+
+        .floating-doc::after {
+            content: '';
+            position: absolute;
+            top: 18px;
+            left: 7px;
+            right: 7px;
+            height: 2px;
+            background: rgba(201, 169, 97, 0.3);
+        }
+
+        .doc-1 { left: 18%; bottom: -55px; animation-duration: 36s; animation-delay: 3s; }
+        .doc-2 { left: 72%; bottom: -55px; animation-duration: 40s; animation-delay: 20s; }
+
+        @keyframes floatDoc {
+            0% {
+                bottom: -55px;
+                opacity: 0;
+                transform: rotate(-8deg);
+            }
+            5% {
+                opacity: 0.3;
+            }
+            50% {
+                transform: rotate(8deg);
+            }
+            95% {
+                opacity: 0.3;
+            }
+            100% {
+                bottom: 110%;
+                opacity: 0;
+                transform: rotate(-8deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 950px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.7rem 1.8rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            animation: slideDown 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.5rem, 8vw, 7.5rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            background: linear-gradient(
+                120deg, 
+                #fff 0%, 
+                var(--accent) 20%, 
+                #e8d4a0 40%, 
+                var(--accent) 60%, 
+                #fff 80%, 
+                var(--accent) 100%
+            );
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: liquidGold 8s ease-in-out infinite, fadeInUp 1s ease 0.2s backwards;
+        }
+
+        @keyframes liquidGold {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        body.rtl .hero h1 {
+            font-size: clamp(4rem, 9vw, 8.5rem);
+            line-height: 1.4;
+            font-family: 'Amiri', serif;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-line-2 {
+            display: block;
+            background: linear-gradient(135deg, var(--accent) 0%, #e8d4a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 5px rgba(201, 169, 97, 0.3)); }
+            50% { filter: brightness(1.3) drop-shadow(0 0 20px rgba(201, 169, 97, 0.6)); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.8s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201, 169, 97, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-label::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        body.rtl .section-title {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        /* Holographic shimmer effect */
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+            border-color: var(--accent);
+            box-shadow: 
+                0 30px 80px rgba(201, 169, 97, 0.3),
+                0 0 60px rgba(201, 169, 97, 0.2),
+                inset 0 0 30px rgba(201, 169, 97, 0.1);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover::after {
+            opacity: 1;
+            left: 50%;
+            top: 50%;
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            filter: drop-shadow(0 0 10px rgba(201, 169, 97, 0.3));
+            transition: transform 0.5s;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(5deg);
+            animation: bounce 1s;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1.2) translateY(0); }
+            50% { transform: scale(1.3) translateY(-10px); }
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+
+        .service-card:hover h3 {
+            color: var(--accent);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .credentials {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .credentials li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .credentials li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.2);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .expertise-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-glow));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .expertise-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .expertise-item:hover::after {
+            transform: scaleX(1);
+        }
+
+        .expertise-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .expertise-item p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--accent), var(--accent-glow));
+            border-radius: 15px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s;
+        }
+
+        .contact-card:hover::before {
+            opacity: 1;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+
+        .contact-card:hover .contact-icon {
+            filter: grayscale(0%);
+        }
+
+        .contact-card h4 {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .contact-card a,
+        .contact-card p {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            background: rgba(15, 24, 36, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--glass-border);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 968px) {
+            /* Disable custom cursor on mobile/tablet */
+            html, a, button, input, textarea {
+                cursor: auto !important;
+            }
+            
+            .cursor, .cursor-follower, .cursor-glow {
+                display: none !important;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.5rem, 10vw, 4rem);
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .expertise-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                cursor: auto;
+            }
+
+            .cursor, .cursor-follower, .cursor-glow {
+                display: none;
+            }
+        }
+
+        body.rtl .nav-menu {
+            flex-direction: row-reverse;
+        }
+
+        body.rtl .hero-cta {
+            flex-direction: row-reverse;
+        }
+
+        body.rtl .credentials li {
+            padding-left: 0;
+            padding-right: 2rem;
+        }
+
+        body.rtl .credentials li::before {
+            left: auto;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <!-- Floating Particles -->
+        <div class="loading-particle"></div>
+        <div class="loading-particle"></div>
+        <div class="loading-particle"></div>
+        <div class="loading-particle"></div>
+
+        <!-- Animated Logo -->
+        <div class="loading-logo">
+            <div class="loading-pen">✒️</div>
+            <div class="orbit-letter">A</div>
+            <div class="orbit-letter">ت</div>
+            <div class="orbit-letter">F</div>
+            <div class="orbit-letter">ع</div>
+        </div>
+
+        <!-- Loading Text -->
+        <div class="loading-text">Assala SAKER</div>
+        
+        <!-- Progress Bar -->
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursors -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div class="cursor-glow"></div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg" id="animatedBg"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" data-fr="Assala SAKER" data-ar="أصالة صقر">Assala SAKER</a>
+            <ul class="nav-menu">
+                <li><a href="#home" data-fr="Accueil" data-ar="الرئيسية">Accueil</a></li>
+                <li><a href="#services" data-fr="Services" data-ar="الخدمات">Services</a></li>
+                <li><a href="#about" data-fr="À propos" data-ar="نبذة عني">À propos</a></li>
+                <li><a href="#expertise" data-fr="Expertise" data-ar="الخبرة">Expertise</a></li>
+                <li><a href="#contact" data-fr="Contact" data-ar="اتصل">Contact</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="ar">عربي</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Constellation - Language Connection -->
+        <div class="constellation-star" style="top: 20%; left: 15%; animation-delay: 0s;"></div>
+        <div class="constellation-star" style="top: 25%; left: 35%; animation-delay: 0.5s;"></div>
+        <div class="constellation-star" style="top: 30%; left: 55%; animation-delay: 1s;"></div>
+        <div class="constellation-star" style="top: 35%; left: 75%; animation-delay: 1.5s;"></div>
+        <div class="constellation-star" style="top: 60%; left: 25%; animation-delay: 2s;"></div>
+        <div class="constellation-star" style="top: 65%; left: 65%; animation-delay: 2.5s;"></div>
+        
+        <div class="constellation-line" style="top: 22%; left: 15%; width: 200px; transform: rotate(10deg);"></div>
+        <div class="constellation-line" style="top: 27%; left: 35%; width: 180px; transform: rotate(5deg); animation-delay: 1s;"></div>
+        <div class="constellation-line" style="top: 32%; left: 55%; width: 160px; transform: rotate(-8deg); animation-delay: 2s;"></div>
+        <div class="constellation-line" style="top: 62%; left: 25%; width: 220px; transform: rotate(15deg); animation-delay: 1.5s;"></div>
+
+        <!-- Floating Letters - BIGGER & MORE VISIBLE -->
+        <div class="floating-letter letter-1" style="left: 10%; bottom: -60px; animation-duration: 35s; font-family: 'Playfair Display', serif;">A</div>
+        <div class="floating-letter letter-2" style="left: 30%; bottom: -60px; animation-duration: 40s; animation-delay: 12s; font-family: 'Amiri', serif; font-size: 6rem;">ت</div>
+        <div class="floating-letter letter-3" style="left: 50%; bottom: -60px; animation-duration: 38s; animation-delay: 24s; font-family: 'Playfair Display', serif;">F</div>
+        <div class="floating-letter letter-4" style="left: 70%; bottom: -60px; animation-duration: 42s; animation-delay: 8s; font-family: 'Amiri', serif; font-size: 6rem;">ع</div>
+        <div class="floating-letter letter-5" style="left: 85%; bottom: -60px; animation-duration: 36s; animation-delay: 20s; font-family: 'Playfair Display', serif;">R</div>
+        <div class="floating-letter letter-6" style="left: 20%; bottom: -60px; animation-duration: 44s; animation-delay: 16s; font-family: 'Amiri', serif; font-size: 6rem;">ل</div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge" data-fr="Traductrice Assermentée | Cour d'Appel de Nancy" data-ar="ترجمان محلف | محكمة الاستئناف نانسي">Traductrice Assermentée | Cour d'Appel de Nancy</div>
+                <h1>
+                    <span class="hero-line-1" data-fr="Votre Passerelle Linguistique" data-ar="جسركم اللغوي">Votre Passerelle Linguistique</span><br>
+                    <span class="hero-line-2" data-fr="vers l'Autre Rive Culturelle" data-ar="إلى الضفة الثقافية الأخرى">vers l'Autre Rive Culturelle</span>
+                </h1>
+                <p class="hero-subtitle" data-fr="Traduction professionnelle Français ⟷ Arabe" data-ar="ترجمة احترافية عربي ⟷ فرنسي">Traduction professionnelle Français ⟷ Arabe</p>
+                <p class="hero-description" data-fr="Expert en traduction certifiée et assermentée, je transforme vos documents avec précision, fidélité et respect culturel. Basée à Épinal, au service de vos projets internationaux." data-ar="ترجمة الوثائق الرسمية من اللغة العربية إلى اللغة الفرنسية ومن اللغة الفرنسية إلى اللغة العربية - ترجمة فورية. خبيرة في الترجمة المعتمدة والمحلفة بدقة وأمانة واحترام ثقافي.">
+                    Expert en traduction certifiée et assermentée, je transforme vos documents avec précision, 
+                    fidélité et respect culturel. Basée à Épinal, au service de vos projets internationaux.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary" data-fr="Demander un devis" data-ar="طلب عرض أسعار">Demander un devis</a>
+                    <a href="#about" class="btn btn-secondary" data-fr="En savoir plus" data-ar="معرفة المزيد">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services fade-in" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" data-fr="Mes Services" data-ar="خدماتي">Mes Services</span>
+                <h2 class="section-title" data-fr="Excellence en Traduction" data-ar="التميز في الترجمة">Excellence en Traduction</h2>
+                <p class="section-description" data-fr="Des solutions linguistiques professionnelles adaptées à tous vos besoins, avec la garantie d'une traductrice assermentée." data-ar="حلول لغوية احترافية مصممة خصيصًا لتلبية جميع احتياجاتكم، مع ضمان مترجمة معتمدة.">
+                    Des solutions linguistiques professionnelles adaptées à tous vos besoins, 
+                    avec la garantie d'une traductrice assermentée.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📜</div>
+                    <h3 data-fr="Traduction Assermentée" data-ar="الترجمة المعتمدة">Traduction Assermentée</h3>
+                    <p data-fr="Traductions certifiées et reconnues officiellement pour vos documents juridiques, administratifs et officiels. Valeur légale garantie." data-ar="ترجمة الوثائق الرسمية من اللغة العربية إلى اللغة الفرنسية ومن اللغة الفرنسية إلى اللغة العربية. ترجمات معتمدة ومعترف بها رسمياً بقيمة قانونية مضمونة.">Traductions certifiées et reconnues officiellement pour vos documents juridiques, administratifs et officiels. Valeur légale garantie.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3 data-fr="Examen du Code de la Route" data-ar="امتحان السياقة النظري">Examen du Code de la Route</h3>
+                    <p data-fr="Interprétation professionnelle pour l'épreuve théorique de l'examen du Code de la route à Épinal. Accompagnement complet pour réussir votre examen." data-ar="ترجمة فورية احترافية لامتحان القيادة النظري في إبينال. مرافقة كاملة لنجاح امتحانك.">Interprétation professionnelle pour l'épreuve théorique de l'examen du Code de la route à Épinal. Accompagnement complet pour réussir votre examen.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📞</div>
+                    <h3 data-fr="Interprétariat par Téléphone" data-ar="ترجمة فورية عبر الهاتف">Interprétariat par Téléphone</h3>
+                    <p data-fr="Service d'interprétation à distance pour vos besoins urgents. Disponible et flexible pour vos rendez-vous médicaux, administratifs ou professionnels." data-ar="خدمة الترجمة الفورية عن بُعد لاحتياجاتكم العاجلة. متوفرة ومرنة لمواعيدكم الطبية والإدارية والمهنية.">Service d'interprétation à distance pour vos besoins urgents. Disponible et flexible pour vos rendez-vous médicaux, administratifs ou professionnels.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📄</div>
+                    <h3 data-fr="Documents Professionnels" data-ar="الوثائق المهنية">Documents Professionnels</h3>
+                    <p data-fr="Contrats, rapports, correspondance commerciale : votre communication professionnelle traduite avec expertise et confidentialité absolue." data-ar="عقود، تقارير، مراسلات تجارية: تواصلكم المهني مترجم بخبرة وسرية تامة.">Contrats, rapports, correspondance commerciale : votre communication professionnelle traduite avec expertise et confidentialité absolue.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <h3 data-fr="Traduction Académique" data-ar="الترجمة الأكاديمية">Traduction Académique</h3>
+                    <p data-fr="Thèses, articles de recherche, supports pédagogiques traduits avec rigueur scientifique et terminologie précise." data-ar="أطروحات، مقالات بحثية، مواد تعليمية مترجمة بدقة علمية ومصطلحات محددة.">Thèses, articles de recherche, supports pédagogiques traduits avec rigueur scientifique et terminologie précise.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3 data-fr="Localisation Web" data-ar="ترجمة المواقع">Localisation Web</h3>
+                    <p data-fr="Adaptation culturelle de vos sites web et contenus digitaux pour toucher authentiquement votre audience francophone ou arabophone." data-ar="التكيف الثقافي لمواقعكم الإلكترونية والمحتوى الرقمي للوصول الحقيقي إلى جمهوركم الناطق بالفرنسية أو العربية.">Adaptation culturelle de vos sites web et contenus digitaux pour toucher authentiquement votre audience francophone ou arabophone.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3 data-fr="Interprétariat Professionnel" data-ar="ترجمة فورية مهنية">Interprétariat Professionnel</h3>
+                    <p data-fr="Services d'interprétation pour vos réunions, conférences et événements professionnels nécessitant une communication bilingue fluide." data-ar="خدمات الترجمة الفورية للاجتماعات والمؤتمرات والفعاليات المهنية. تواصل ثنائي اللغة سلس واحترافي.">Services d'interprétation pour vos réunions, conférences et événements professionnels nécessitant une communication bilingue fluide.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✍️</div>
+                    <h3 data-fr="Révision & Relecture" data-ar="المراجعة والتدقيق">Révision & Relecture</h3>
+                    <p data-fr="Amélioration et correction de traductions existantes pour garantir qualité, cohérence et excellence linguistique." data-ar="تحسين وتصحيح الترجمات الموجودة لضمان الجودة والتماسك والتميز اللغوي.">Amélioration et correction de traductions existantes pour garantir qualité, cohérence et excellence linguistique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about fade-in" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" data-fr="À Propos" data-ar="نبذة">À Propos</span>
+                <h2 class="section-title" data-fr="Expertise & Parcours" data-ar="الخبرة والمسيرة">Expertise & Parcours</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 data-fr="Votre Partenaire Linguistique de Confiance" data-ar="شريكك اللغوي الموثوق">Votre Partenaire Linguistique de Confiance</h3>
+                    <p data-fr="Traductrice assermentée auprès de la Cour d'Appel de Nancy, je mets mon expertise académique et professionnelle au service de vos projets les plus exigeants." data-ar="ترجمان محلف لدى محكمة الاستئناف في نانسي، أضع خبرتي الأكاديمية والمهنية في خدمة مشاريعكم الأكثر تطلباً.">
+                        Traductrice assermentée auprès de la Cour d'Appel de Nancy, je mets mon expertise 
+                        académique et professionnelle au service de vos projets les plus exigeants.
+                    </p>
+                    <p data-fr="Titulaire d'un Doctorat en Sciences du Langage, je combine rigueur scientifique et sensibilité culturelle pour offrir des traductions d'une qualité exceptionnelle." data-ar="حاصلة على درجة الدكتوراه في علوم اللغة، أجمع بين الصرامة العلمية والحساسية الثقافية لتقديم ترجمات ذات جودة استثنائية.">
+                        Titulaire d'un Doctorat en Sciences du Langage, je combine rigueur scientifique 
+                        et sensibilité culturelle pour offrir des traductions d'une qualité exceptionnelle.
+                    </p>
+                    <ul class="credentials">
+                        <li data-fr="Traductrice Assermentée - Cour d'Appel de Nancy" data-ar="ترجمان محلف - محكمة الاستئناف في نانسي">Traductrice Assermentée - Cour d'Appel de Nancy</li>
+                        <li data-fr="Doctorat en Sciences du Langage" data-ar="دكتوراه في علوم اللغة">Doctorat en Sciences du Langage</li>
+                        <li data-fr="Spécialisation Français-Arabe" data-ar="تخصص فرنسي-عربي">Spécialisation Français-Arabe</li>
+                        <li data-fr="Basée à Épinal, France" data-ar="مقرها في إبينال، فرنسا">Basée à Épinal, France</li>
+                    </ul>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="10">10+</div>
+                        <div class="stat-label" data-fr="Années d'Expérience" data-ar="سنوات الخبرة">Années d'Expérience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="1000">1000+</div>
+                        <div class="stat-label" data-fr="Documents Traduits" data-ar="وثيقة مترجمة">Documents Traduits</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">PhD</div>
+                        <div class="stat-label" data-fr="Sciences du Langage" data-ar="علوم اللغة">Sciences du Langage</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label" data-fr="Certifiée Assermentée" data-ar="ترجمان محلف">Certifiée Assermentée</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise fade-in" id="expertise">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" data-fr="Domaines d'Expertise" data-ar="مجالات الخبرة">Domaines d'Expertise</span>
+                <h2 class="section-title" data-fr="Une Expertise Multisectorielle" data-ar="خبرة متعددة القطاعات">Une Expertise Multisectorielle</h2>
+                <p class="section-description" data-fr="Maîtrise approfondie de terminologies spécialisées dans des secteurs variés." data-ar="إتقان شامل للمصطلحات المتخصصة في مختلف القطاعات.">
+                    Maîtrise approfondie de terminologies spécialisées dans des secteurs variés.
+                </p>
+            </div>
+
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <h4 data-fr="Juridique & Administratif" data-ar="قانوني وإداري">Juridique & Administratif</h4>
+                    <p data-fr="Contrats, actes notariés, jugements, documents officiels et procédures administratives" data-ar="العقود، الوثائق الموثقة، الأحكام، الوثائق الرسمية والإجراءات الإدارية">Contrats, actes notariés, jugements, documents officiels et procédures administratives</p>
+                </div>
+
+                <div class="expertise-item">
+                    <h4 data-fr="Code de la Route - Épinal" data-ar="امتحان السياقة - إبينال">Code de la Route - Épinal</h4>
+                    <p data-fr="Interprétation spécialisée pour l'examen théorique du permis de conduire. Accompagnement personnalisé des candidats arabophones." data-ar="ترجمة فورية متخصصة لامتحان القيادة النظري. مرافقة شخصية للمتقدمين الناطقين بالعربية.">Interprétation spécialisée pour l'examen théorique du permis de conduire. Accompagnement personnalisé des candidats arabophones.</p>
+                </div>
+
+                <div class="expertise-item">
+                    <h4 data-fr="Médical & Scientifique" data-ar="طبي وعلمي">Médical & Scientifique</h4>
+                    <p data-fr="Dossiers médicaux, recherches cliniques, publications scientifiques et documentation pharmaceutique" data-ar="ملفات طبية، أبحاث سريرية، منشورات علمية ووثائق صيدلانية">Dossiers médicaux, recherches cliniques, publications scientifiques et documentation pharmaceutique</p>
+                </div>
+
+                <div class="expertise-item">
+                    <h4 data-fr="Commercial & Marketing" data-ar="تجاري وتسويقي">Commercial & Marketing</h4>
+                    <p data-fr="Brochures, sites web, campagnes publicitaires et communication d'entreprise" data-ar="كتيبات، مواقع إلكترونية، حملات إعلانية واتصالات الشركات">Brochures, sites web, campagnes publicitaires et communication d'entreprise</p>
+                </div>
+
+                <div class="expertise-item">
+                    <h4 data-fr="Technique & Industriel" data-ar="تقني وصناعي">Technique & Industriel</h4>
+                    <p data-fr="Manuels d'utilisation, spécifications techniques, documentation industrielle" data-ar="أدلة الاستخدام، المواصفات الفنية، الوثائق الصناعية">Manuels d'utilisation, spécifications techniques, documentation industrielle</p>
+                </div>
+
+                <div class="expertise-item">
+                    <h4 data-fr="Éducatif & Académique" data-ar="تعليمي وأكاديمي">Éducatif & Académique</h4>
+                    <p data-fr="Thèses, mémoires, articles scientifiques et supports pédagogiques" data-ar="أطروحات، رسائل، مقالات علمية ومواد تعليمية">Thèses, mémoires, articles scientifiques et supports pédagogiques</p>
+                </div>
+
+                <div class="expertise-item">
+                    <h4 data-fr="Littéraire & Culturel" data-ar="أدبي وثقافي">Littéraire & Culturel</h4>
+                    <p data-fr="Romans, poésie, essais et contenus culturels avec préservation du style" data-ar="روايات، شعر، مقالات ومحتويات ثقافية مع الحفاظ على الأسلوب">Romans, poésie, essais et contenus culturels avec préservation du style</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact fade-in" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" data-fr="Contact" data-ar="اتصل بنا">Contact</span>
+                <h2 class="section-title" data-fr="Parlons de Votre Projet" data-ar="لنتحدث عن مشروعك">Parlons de Votre Projet</h2>
+                <p class="section-description" data-fr="Prête à transformer vos documents avec expertise et précision. Contactez-moi pour un devis personnalisé." data-ar="مستعدة لتحويل وثائقكم بخبرة ودقة. اتصل بي للحصول على عرض أسعار مخصص.">
+                    Prête à transformer vos documents avec expertise et précision. Contactez-moi pour un devis personnalisé.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h4 data-fr="Email" data-ar="البريد الإلكتروني">Email</h4>
+                    <a href="mailto:assalasaker@hotmail.com">assalasaker@hotmail.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h4 data-fr="Téléphone" data-ar="الهاتف">Téléphone</h4>
+                    <a href="tel:+33767138514">07 67 13 85 14</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h4 data-fr="Localisation" data-ar="الموقع">Localisation</h4>
+                    <p data-fr="Épinal, France" data-ar="إبينال، فرنسا">Épinal, France</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">💼</div>
+                    <h4>LinkedIn</h4>
+                    <a href="https://linkedin.com/in/assala-saker-38aba0ab" target="_blank" data-fr="Voir le profil" data-ar="عرض الملف الشخصي">Voir le profil</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p data-fr="© 2025 Assala SAKER | Traductrice Assermentée Français-Arabe | Tous droits réservés" data-ar="© 2025 أصالة صقر | ترجمان محلف فرنسي-عربي | جميع الحقوق محفوظة">&copy; 2025 Assala SAKER | Traductrice Assermentée Français-Arabe | Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        // ========== CUSTOM CURSOR ==========
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        const cursorGlow = document.querySelector('.cursor-glow');
+
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+        let inkTrail = [];
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+
+            // Create ink trail particles
+            if (Math.random() > 0.7) {
+                createInkParticle(mouseX, mouseY);
+            }
+        });
+
+        // Ink particle effect
+        function createInkParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'var(--accent)';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '9996';
+            particle.style.opacity = '0.6';
+            particle.style.transition = 'all 0.8s ease-out';
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.style.opacity = '0';
+                particle.style.transform = 'scale(0) translateY(20px)';
+            }, 50);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 850);
+        }
+
+        function animateFollower() {
+            followerX += (mouseX - followerX) * 0.1;
+            followerY += (mouseY - followerY) * 0.1;
+            
+            cursorFollower.style.left = followerX + 'px';
+            cursorFollower.style.top = followerY + 'px';
+            
+            cursorGlow.style.left = (followerX - 75) + 'px';
+            cursorGlow.style.top = (followerY - 75) + 'px';
+            
+            requestAnimationFrame(animateFollower);
+        }
+        animateFollower();
+
+        // ========== ANIMATED BACKGROUND ==========
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        document.getElementById('animatedBg').appendChild(canvas);
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 50;
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 100;
+                this.speed = 0.2 + Math.random() * 0.5;
+                this.size = 1 + Math.random() * 2;
+                this.opacity = Math.random() * 0.5;
+            }
+
+            update() {
+                this.y -= this.speed;
+                if (this.y < -10) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(201, 169, 97, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // ========== NAVBAR SCROLL ==========
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ========== LANGUAGE SWITCHER ==========
+        const langBtns = document.querySelectorAll('.lang-btn');
+        let currentLang = 'fr';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            if (lang === 'ar') {
+                document.body.classList.add('rtl');
+            } else {
+                document.body.classList.remove('rtl');
+            }
+            
+            document.querySelectorAll('[data-fr][data-ar]').forEach(el => {
+                if (lang === 'ar') {
+                    el.textContent = el.getAttribute('data-ar');
+                } else {
+                    el.textContent = el.getAttribute('data-fr');
+                }
+            });
+            
+            langBtns.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                switchLanguage(lang);
+            });
+        });
+
+        // ========== SCROLL ANIMATIONS ==========
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ========== SMOOTH SCROLL ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ========== COUNTER ANIMATION ==========
+        const counters = document.querySelectorAll('[data-count]');
+        
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-count'));
+            let current = 0;
+            const increment = target / 100;
+            
+            const updateCounter = () => {
+                if (current < target) {
+                    current += increment;
+                    counter.textContent = Math.ceil(current) + '+';
+                    setTimeout(updateCounter, 20);
+                } else {
+                    counter.textContent = target + '+';
+                }
+            };
+            
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        updateCounter();
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            counterObserver.observe(counter);
+        });
+
+        // ========== 3D CARD TILT EFFECT ==========
+        const serviceCards = document.querySelectorAll('.service-card');
+        
+        serviceCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // ========================================
+        // PARTICLE TEXT FORMATION ON SCROLL
+        // Revolutionary effect - titles assemble
+        // ========================================
+        const sectionTitles = document.querySelectorAll('.section-title');
+        
+        const titleObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('particle-effect');
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, 1500);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        sectionTitles.forEach(title => {
+            titleObserver.observe(title);
+        });
+
+        // ========================================
+        // LOADING SCREEN - Hide after page loads
+        // ========================================
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            
+            // Wait minimum 2 seconds for nice effect
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+                
+                // Remove from DOM after fade out
+                setTimeout(() => {
+                    loadingScreen.remove();
+                }, 800);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
